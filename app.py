@@ -3,7 +3,6 @@ import datetime
 import pandas as pd
 
 
-'''
 st.title('내가 찾은 단어 담벼락')
 
 @st.cache(allow_output_mutation=True)
@@ -15,10 +14,7 @@ st.title('내가 찾은 단어 담벼락')
         if option == input1:
             st.success('정답입니다.')
 
-#problem()
+problem()
 
-
-
-'''
 
 
