@@ -5,7 +5,7 @@ import pandas as pd
 
 st.title('내가 찾은 단어 담벼락')
 
-@st.cache(allow_output_mutation=True)
+#@st.cache(allow_output_mutation=True)
 
 st.text_input()
 a = st.text_input('정답 단어')
