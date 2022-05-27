@@ -8,9 +8,8 @@ import pandas as pd
 def problem():
     input1 = st.text_input('정답 단어')
     input2 = st.text_input('헷갈리게 하는 단어')
-    date=datetime.now().strftime('%Y-%m-%d')
+    #date=datetime.now().strftime('%Y-%m-%d')
     df=pd.DataFrame({
-'날짜': date,
 '정답': input1,
 '헷갈': input2
 })
