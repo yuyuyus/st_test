@@ -3,12 +3,6 @@ import datetime
 import pandas as pd
 @st.cache(allow_output_mutation=True)
 
-st.title('내가 찾은 단어 담벼락')
-
-
-
-
-
             
 def problem():
     input1 = st.text_input('정답 단어')
