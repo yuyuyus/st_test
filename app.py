@@ -6,7 +6,7 @@ import pandas as pd
 st.title('내가 찾은 단어 담벼락')
 
 @st.cache(allow_output_mutation=True)
-#def problem():
+def problem():
     input1 = st.text_input('정답 단어')
     input2 = st.text_input('헷갈리게하는 단어')
     if st.button('만들기'):
@@ -14,7 +14,7 @@ st.title('내가 찾은 단어 담벼락')
         if option == input1:
             st.success('정답입니다.')
 
-#problem()
+problem()
 
 
 
