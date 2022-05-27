@@ -14,7 +14,7 @@ def problem():
 '정답': input1,
 '헷갈': input2
 })
-return df
+    return df
 
 '''
     if st.button('만들기'):
