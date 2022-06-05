@@ -2,7 +2,8 @@ import streamlit as st
 import datetime
 import pandas as pd
 
-#@st.cache(allow_output_mutation=True)
+@st.cache(allow_output_mutation=True)
+
 title = st.text_input('Movie title', 'Life of Brian')
 st.write('The current movie title is', title)
 
