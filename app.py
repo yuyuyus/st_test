@@ -13,8 +13,9 @@ date = st.date_input('작성 날짜')
 
 df=pd.DataFrame([[date, w1, w2]], columns=['날짜','정답','오답'])
 
-@st.cache(allow_output_mutation=True)
+
 if st.button('만들기'):
+  @st.cache(allow_output_mutation=True)
   st.table(df)
 '''
 print('당신은 번호 '+str(number)+'번 '+name+'이며, 혈액형은 '+blood+'형인 '+gender+'입니다. 맞습니까? 맞으면 다음 단계로 넘어가세요.')
