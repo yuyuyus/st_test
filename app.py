@@ -9,9 +9,11 @@ w1 = st.text_input('정답 단어')
 w2 = st.text_input('헷갈리게 하는 단어')
 date = st.date_input('작성 날짜')
 
-@st.cache(allow_output_mutation=True)
+
+
 df=pd.DataFrame([[date, w1, w2]], columns=['날짜','정답','오답'])
 
+@st.cache(allow_output_mutation=True)
 if st.button('만들기'):
   st.table(df)
 '''
