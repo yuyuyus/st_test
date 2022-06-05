@@ -2,14 +2,16 @@ import streamlit as st
 import datetime
 import pandas as pd
 
-#@st.cache(allow_output_mutation=True)
+#
 
 
 w1 = st.text_input('정답 단어')
 w2 = st.text_input('헷갈리게 하는 단어')
 date = st.date_input('작성 날짜')
+
+@st.cache(allow_output_mutation=True)
 df=pd.DataFrame([[date, w1, w2]], columns=['날짜','정답','오답'])
-#return df
+
 if st.button('만들기'):
   st.table(df)
 '''
