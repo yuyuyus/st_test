@@ -2,28 +2,18 @@ import streamlit as st
 import datetime
 import pandas as pd
 
-#@st.cache(allow_output_mutation=True)
+@st.cache(allow_output_mutation=True)
 
-            
-def problem():
-    input1 = st.text_input('정답 단어')
-    input2 = st.text_input('헷갈리게 하는 단어')
-    #date=datetime.now().strftime('%Y-%m-%d')
-    df=pd.DataFrame({
-'정답': input1,
-'헷갈': input2
-})
-    return df
-
+input1 = st.text_input('정답 단어')
+input2 = st.text_input('헷갈리게 하는 단어')
+date=datetime.now().strftime('%Y-%m-%d')
+df=pd.DataFrame([date, input1, input2], columns=['날짜','정답','오답'])
+#return df
+st.table(df)
 '''
-    if st.button('만들기'):
-        option = st.radio("문제", ('미선택',input1, input2))
-        if option == input1:
-            st.success('정답입니다.')
-''' 
-
-problem()
-if st.button('만들기'):
-    st.table(df)
-
-
+print('당신은 번호 '+str(number)+'번 '+name+'이며, 혈액형은 '+blood+'형인 '+gender+'입니다. 맞습니까? 맞으면 다음 단계로 넘어가세요.')
+input_info=[number,name,blood,gender]
+globals()['input_info_{}'.format(number)]= input_info
+all_data.loc[number]=globals()['input_info_{}'.format(number)]
+all_data= all_data.sort_index()
+'''
