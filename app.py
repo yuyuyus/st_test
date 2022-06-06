@@ -60,8 +60,6 @@ if keyword:
     ''')
     
     
-    print(datetime.datetime.now())
-
     fig, ax = plt.subplots()
     ax = df['검색량'].plot()
     if keyword2:
