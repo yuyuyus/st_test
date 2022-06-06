@@ -58,11 +58,19 @@ st.sidebar.write(''' # :chart_with_upwards_trend: 구글 검색량 확인하기'
 st.sidebar.markdown(
     '''
     :smile:
-   지난 5년 동안 사람들이 구글과 유튜브에서 검색어를 검색한 빈도를 그래프로 확인해 봅니다. 
+   지난 5년 동안 사람들이 구글과 유튜브에서 '특정 단어'를 검색한 빈도를 그래프로 확인해 봅니다. 
    시간 흐름에 따라 검색어에 대한 관심도가 가장 높을 때를 :100:으로 잡고 변화 양상을 보여줍니다. 
     ''')
-keyword1 = st.sidebar.text_input("검색어1를 입력하세요.(필수)", help="그래프가 파란색으로 그려집니다.")
-keyword2 = st.sidebar.text_input("검색어2를 입력하세요.(선택)", help="그래프가 주황색으로 그려집니다.")
+n = st.sidebar.radio("검색어 개수",
+     ('단어 1개', '단어 2개'), horizontal=True)
+
+if n == '단어 1개':
+     keyword1 = st.sidebar.text_input("검색어1를 입력하세요.(필수)", help="그래프가 파란색으로 그려집니다.")
+
+else:
+     keyword1 = st.sidebar.text_input("검색어1를 입력하세요.(필수)", help="그래프가 파란색으로 그려집니다.")
+     keyword2 = st.sidebar.text_input("검색어2를 입력하세요.(선택)", help="그래프가 주황색으로 그려집니다.")
+
 button= st.sidebar.button('검색하기')
 
 
