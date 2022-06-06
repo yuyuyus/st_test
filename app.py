@@ -56,10 +56,7 @@ if keyword:
  
     st.markdown(''' 
     ### 매주 검색량 변화 그래프
-    :100:
-    :blue_book:
-    :large_blue_square: 
-    검색어1,  :large_orange_square: 검색어2 
+    :blue_book: : 검색어1,  :orange_book: : 검색어2 
     ''')
 
     fig, ax = plt.subplots()
