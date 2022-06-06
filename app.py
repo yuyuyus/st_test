@@ -22,13 +22,13 @@ def get_data(keyword):
         df.columns = ["날짜 및 기간(주)", "검색량"]
         df.set_index("날짜 및 기간(주)", inplace=True)
         return df
-        fig, ax = plt.subplots()
-        ax = df['검색량'].plot()
+            fig, ax = plt.subplots()
+            ax = df['검색량'].plot()
 
-        ax.grid(alpha=0.3)
-        ax.set(ylabel='search', xlabel='year')
+            ax.grid(alpha=0.3)
+            ax.set(ylabel='search', xlabel='year')
 
-        st.pyplot(fig)
+            st.pyplot(fig)
 
 def get_data2(keyword2):
     keyword2 = [keyword2]
