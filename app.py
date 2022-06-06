@@ -59,6 +59,6 @@ if keyword:
     if keyword2:
         ax = df2['검색량'].plot()
     ax.grid()
-    ax.set(ylabel='search', xlabel='year')
+    ax.set(ylabel='search', xlabel='연도')
     ax.legend()
     st.pyplot(fig)
