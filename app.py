@@ -14,10 +14,10 @@ t_int = int(''.join(list(filter(str.isdigit, t))))
 
 now = datetime.datetime.now().date()
 past =  datetime.datetime.now().date()-relativedelta(years= t_int)
-time= now+ ' ' + past
+time= str(now)+ ' ' + str(past)
 st.text(past)
 st.text(now)
-
+st.text(time)
 
 
 
