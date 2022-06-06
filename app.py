@@ -22,7 +22,7 @@ def get_data(keyword1, keyword2):
         df.columns = ["날짜 및 기간(주)"] + list(range(1,len(keyword)+1)) 
         df.set_index("날짜 및 기간(주)", inplace=True)
         
-        fig, ax = plt.subplots()
+        #fig, ax = plt.subplots()
         ax = df.plot()
 
         ax.grid(alpha=0.3)
