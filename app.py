@@ -9,7 +9,27 @@ from pytrends.request import TrendReq
 
 # get google trends data from keyword list
 
-def get_data(keyword1, keyword2):
+def get_data1(keyword1):
+    keyword = [keyword1]
+    pytrend = TrendReq(hl='KR', tz=540)
+    pytrend.build_payload(kw_list=keyword, geo='KR')
+    df = pytrend.interest_over_time()
+    if df.empty:    
+        st.info('검색어를 띄어 써서 다시 검색해 보세요. 또는 더 일반적인 낱말을 검색하세요.')
+    else:
+        df.drop(columns=['isPartial'], inplace=True)
+        df.reset_index(inplace=True)
+        df.columns = ["날짜 및 기간(주)"] + list(range(1,len(keyword)+1)) 
+        df.set_index("날짜 및 기간(주)", inplace=True)
+       
+        return st.markdown(''' 
+    ### 매주 검색량 변화 그래프
+    (:blue_book::검색어1 '''), st.line_chart(df, use_container_width=True)
+    
+    
+    
+    
+def get_data2(keyword1, keyword2):
     keyword = [keyword1, keyword2]
     pytrend = TrendReq(hl='KR', tz=540)
     pytrend.build_payload(kw_list=keyword, geo='KR')
@@ -21,37 +41,12 @@ def get_data(keyword1, keyword2):
         df.reset_index(inplace=True)
         df.columns = ["날짜 및 기간(주)"] + list(range(1,len(keyword)+1)) 
         df.set_index("날짜 및 기간(주)", inplace=True)
-        
-        fig, ax = plt.subplots()
-        ax = df.plot()
-
-        ax.grid(alpha=0.3)
-        ax.set(ylabel='search', xlabel='year')
-
+       
         return st.markdown(''' 
     ### 매주 검색량 변화 그래프
-    (:blue_book::검색어1   :orange_book::검색어2) '''), st.line_chart(df, use_container_width=True) #st.pyplot(ax)
+    (:blue_book::검색어1   :orange_book::검색어2) '''), st.line_chart(df, use_container_width=True)
+
     
-'''
-def get_data2(keyword2):
-    keyword2 = [keyword2]
-    pytrend = TrendReq(hl='KR', tz=540)
-    pytrend.build_payload(kw_list=keyword2, geo='KR')
-    df2 = pytrend.interest_over_time()
-    if df2.empty:    
-        st.info('검색어2를 띄어 써서 다시 검색해 보세요. 또는 더 일반적인 낱말을 검색하세요.')
-    else:
-        df2.drop(columns=['isPartial'], inplace=True)
-        df2.reset_index(inplace=True)
-        df2.columns = ["날짜 및 기간(주)", "검색량"]
-        df2.set_index("날짜 및 기간(주)", inplace=True)
-        
-        fig, ax = plt.subplots()
-        ax = df2['검색량'].plot()
-
-        return st.pyplot(fig)
-'''
-
 # sidebar
 st.sidebar.write(''' # :chart_with_upwards_trend: 구글 검색량 확인하기''')
 
@@ -65,16 +60,16 @@ n = st.sidebar.radio("검색어 개수",
      ('단어 1개', '단어 2개'), horizontal=True)
 
 if n == '단어 1개':
-     keyword1 = st.sidebar.text_input("검색어1를 입력하세요.(필수)", help="그래프가 파란색으로 그려집니다.")
+    keyword1 = st.sidebar.text_input("검색어1를 입력하세요.(필수)", help="그래프가 파란색으로 그려집니다.")
+    button= st.sidebar.button('검색하기')
+    if button:
+        get_data1(keyword1)
 
 else:
-     keyword1 = st.sidebar.text_input("검색어1를 입력하세요.(필수)", help="그래프가 파란색으로 그려집니다.")
-     keyword2 = st.sidebar.text_input("검색어2를 입력하세요.(선택)", help="그래프가 주황색으로 그려집니다.")
-
-button= st.sidebar.button('검색하기')
-
-
-if button:
-    get_data(keyword1, keyword2)
+    keyword1 = st.sidebar.text_input("검색어1를 입력하세요.(필수)", help="그래프가 파란색으로 그려집니다.")
+    keyword2 = st.sidebar.text_input("검색어2를 입력하세요.(선택)", help="그래프가 주황색으로 그려집니다.")
+    button= st.sidebar.button('검색하기')
+    if button:
+        get_data2(keyword1, keyword2)
 
 
