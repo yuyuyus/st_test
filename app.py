@@ -8,7 +8,7 @@ from datetime import datetime
 from pytrends.request import TrendReq
 
 # get google trends data from keyword list
-@st.cache
+@st.cache(suppress_st_warning=True)
 def get_data(keyword):
     keyword = [keyword]
     pytrend = TrendReq(hl='KR', tz=540)
