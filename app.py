@@ -55,7 +55,7 @@ if keyword:
    
  
     st.write(' ### 매주 검색량 변화 그래프 ')
-    st.write(''' ## :large_blue_square: : 검색어1,  :large_orange_square: : 검색어2''')
+    st.write(''' :large_blue_square: : 검색어1,  :large_orange_square: : 검색어2 ''')
 
     fig, ax = plt.subplots()
     ax = df['검색량'].plot()
