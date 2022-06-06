@@ -23,7 +23,7 @@ def get_data1(keyword1):
         df.set_index("날짜 및 기간(주)", inplace=True)
        
         return st.markdown(''' 
-    ### 매주 검색량 변화 그래프
+    ### 검색량 변화 그래프
     (:blue_book::검색어1) '''), st.line_chart(df, use_container_width=True)
     
     
@@ -43,7 +43,7 @@ def get_data2(keyword1, keyword2):
         df.set_index("날짜 및 기간(주)", inplace=True)
        
         return st.markdown(''' 
-    ### 매주 검색량 변화 그래프
+    ### 검색량 변화 그래프
     (:blue_book::검색어1   :orange_book::검색어2) '''), st.line_chart(df, use_container_width=True)
 
     
@@ -60,21 +60,21 @@ n = st.sidebar.radio("검색어 개수",
      ('단어 1개', '단어 2개'), horizontal=True)
 
 if n == '단어 1개':
-    keyword1 = st.sidebar.text_input("검색어1를 입력하세요.(필수)", help="그래프가 파란색으로 그려집니다.")
+    keyword1 = st.sidebar.text_input("검색어1를 입력하세요.", help="그래프가 파란색으로 그려집니다.")
     button= st.sidebar.button('검색하기')
     if button:
         if len(keyword1)==0:
-            st.info('검색어를 입력해주세요.')
+            st.info('검색어를 입력하세요.')
         else: 
             get_data1(keyword1)
 
 else:
-    keyword1 = st.sidebar.text_input("검색어1를 입력하세요.(필수)", help="그래프가 파란색으로 그려집니다.")
-    keyword2 = st.sidebar.text_input("검색어2를 입력하세요.(선택)", help="그래프가 주황색으로 그려집니다.")
+    keyword1 = st.sidebar.text_input("검색어1를 입력하세요.", help="그래프가 파란색으로 그려집니다.")
+    keyword2 = st.sidebar.text_input("검색어2를 입력하세요.", help="그래프가 주황색으로 그려집니다.")
     button= st.sidebar.button('검색하기')
     if button:
         if len(keyword1)==0 or len(keyword2)==0 :
-            st.info('검색어를 입력해주세요.')
+            st.info('검색어 2개를 모두 입력하세요.')
         else: 
             get_data2(keyword1, keyword2)
 
