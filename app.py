@@ -24,7 +24,7 @@ def get_data1(keyword1):
        
         return st.markdown(''' 
     ### 매주 검색량 변화 그래프
-    (:blue_book::검색어1 '''), st.line_chart(df, use_container_width=True)
+    (:blue_book::검색어1) '''), st.line_chart(df, use_container_width=True)
     
     
     
@@ -63,13 +63,19 @@ if n == '단어 1개':
     keyword1 = st.sidebar.text_input("검색어1를 입력하세요.(필수)", help="그래프가 파란색으로 그려집니다.")
     button= st.sidebar.button('검색하기')
     if button:
-        get_data1(keyword1)
+        if len(keyword1)=0:
+            st.info('검색어를 입력해주세요.')
+        else: 
+            get_data1(keyword1)
 
 else:
     keyword1 = st.sidebar.text_input("검색어1를 입력하세요.(필수)", help="그래프가 파란색으로 그려집니다.")
     keyword2 = st.sidebar.text_input("검색어2를 입력하세요.(선택)", help="그래프가 주황색으로 그려집니다.")
     button= st.sidebar.button('검색하기')
     if button:
-        get_data2(keyword1, keyword2)
+        if len(keyword1)=0 or len(keyword2)=0 :
+            st.info('검색어를 입력해주세요.')
+        else: 
+            get_data2(keyword1, keyword2)
 
 
