@@ -7,16 +7,33 @@ from dateutil.relativedelta import relativedelta
 
 from pytrends.request import TrendReq
 
-t = st.sidebar.select_slider('''
-:heart: 기간 선택
-''',
-     options=['10년 전부터', '9년 전부터','8년 전부터','7년 전부터','6년 전부터','5년 전부터','4년 전부터','3년 전부터','2년 전부터','1년 전부터'])
+# sidebar
+st.sidebar.write(''' # :chart_with_upwards_trend: 구글 검색량 확인하기''')
+
+st.sidebar.markdown(
+    '''
+   지난 5년 동안 사람들이 구글과 유튜브에서 '특정 단어'를 검색한 빈도를 그래프로 확인해 봅니다. 
+   시간 흐름에 따라 검색어에 대한 관심도가 가장 높을 때를 :100:으로 잡고 변화 양상을 보여줍니다. 
+    ''')
+
+st.sidebar.markdown(
+    '''
+   :point_right:
+   검색 기간 정하기
+    ''')
+
+t = st.sidebar.select_slider(options=['10년 전부터', '9년 전부터','8년 전부터','7년 전부터','6년 전부터','5년 전부터','4년 전부터','3년 전부터','2년 전부터','1년 전부터'])
 
 t_int = int(''.join(list(filter(str.isdigit, t))))
 
 now = datetime.datetime.now().date()
 past =  datetime.datetime.now().date()-relativedelta(years= t_int)
 time= str(past)+ ' ' + str(now)
+
+
+n = st.sidebar.radio("검색어 개수",
+     ('단어 1개', '단어 2개'), horizontal=True)
+
 
 
 
@@ -60,19 +77,7 @@ def get_data2(keyword1, keyword2):
     (:blue_book::검색어1   :orange_book::검색어2) '''), st.line_chart(df, use_container_width=True)
 
     
-# sidebar
-st.sidebar.write(''' # :chart_with_upwards_trend: 구글 검색량 확인하기''')
 
-st.sidebar.markdown(
-    '''
-    :smile:
-   지난 5년 동안 사람들이 구글과 유튜브에서 '특정 단어'를 검색한 빈도를 그래프로 확인해 봅니다. 
-   시간 흐름에 따라 검색어에 대한 관심도가 가장 높을 때를 :100:으로 잡고 변화 양상을 보여줍니다. 
-    ''')
-
-
-n = st.sidebar.radio("검색어 개수",
-     ('단어 1개', '단어 2개'), horizontal=True)
 
 if n == '단어 1개':
     keyword1 = st.sidebar.text_input("검색어1를 입력하세요.", help="그래프가 파란색으로 그려집니다.")
