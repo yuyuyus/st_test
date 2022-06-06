@@ -14,7 +14,8 @@ t_int = int(''.join(list(filter(str.isdigit, t))))
 
 now = datetime.datetime.now().date()
 time =  datetime.datetime.now().date()-relativedelta(years= t_int)
-st.text(time+ ' ' + now)
+st.text(time)
+st.text(now)
 
 
 
