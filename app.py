@@ -14,15 +14,7 @@ t_int = int(''.join(list(filter(str.isdigit, t))))
 
 now = datetime.datetime.now().date()
 past =  datetime.datetime.now().date()-relativedelta(years= t_int)
-time= str(now)+ ' ' + str(past)
-st.text(past)
-st.text(now)
-st.text(time)
-
-
-
-
-
+time= str(past)+ ' ' + str(now)
 
 
 
@@ -31,7 +23,7 @@ st.text(time)
 def get_data1(keyword1):
     keyword = [keyword1]
     pytrend = TrendReq(hl='KR', tz=540)
-    pytrend.build_payload(kw_list=keyword, geo='KR')
+    pytrend.build_payload(kw_list=keyword, geo='KR', timeframe=time)
     df = pytrend.interest_over_time()
     if df.empty:    
         st.info('검색어를 띄어 써서 다시 검색해 보세요. 또는 더 일반적인 낱말을 검색하세요.')
@@ -51,7 +43,7 @@ def get_data1(keyword1):
 def get_data2(keyword1, keyword2):
     keyword = [keyword1, keyword2]
     pytrend = TrendReq(hl='KR', tz=540)
-    pytrend.build_payload(kw_list=keyword, geo='KR')
+    pytrend.build_payload(kw_list=keyword, geo='KR', timeframe=time)
     df = pytrend.interest_over_time()
     if df.empty:    
         st.info('검색어를 띄어 써서 다시 검색해 보세요. 또는 더 일반적인 낱말을 검색하세요.')
