@@ -33,8 +33,8 @@ def get_data2(keyword2):
 
 # sidebar
 st.sidebar.write('''
-:chart_with_upwards_trend:
-# 구글 검색량 확인하기
+
+# :chart_with_upwards_trend: 구글 검색량 확인하기
 ''')
 
 st.sidebar.markdown(
