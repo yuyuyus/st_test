@@ -7,7 +7,7 @@ from dateutil.relativedelta import relativedelta
 
 from pytrends.request import TrendReq
 
-t = st.sidebar.select_slider('기간 선택',
+t = st.sidebar.select_slider('''	:heart: 기간 선택''',
      options=['10년 전부터', '9년 전부터','8년 전부터','7년 전부터','6년 전부터','5년 전부터','4년 전부터','3년 전부터','2년 전부터','1년 전부터'])
 
 t_int = int(''.join(list(filter(str.isdigit, t))))
