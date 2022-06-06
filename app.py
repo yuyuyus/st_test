@@ -32,7 +32,10 @@ def get_data2(keyword2):
     return df2
 
 # sidebar
-st.sidebar.write('# 구글 검색량 확인하기')
+st.sidebar.write('''
+:chart_with_upwards_trend:
+# 구글 검색량 확인하기
+''')
 
 st.sidebar.markdown(
     '''
@@ -55,7 +58,7 @@ if keyword:
    
  
     st.write('''
-             :chart_with_upwards_trend:
+             
              ### 매주 검색량 변화 그래프(파랑:검색어1, 주황:검색어2)')
     st.caption('(파랑:검색어1, 주황:검색어2)''')
     '''
