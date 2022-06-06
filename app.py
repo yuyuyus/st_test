@@ -14,11 +14,14 @@ def get_data(keyword):
     pytrend = TrendReq(hl='KR', tz=540)
     pytrend.build_payload(kw_list=keyword, geo='KR')
     df = pytrend.interest_over_time()
-    df.drop(columns=['isPartial'], inplace=True)
-    df.reset_index(inplace=True)
-    df.columns = ["날짜 및 기간(주)", "검색량"]
-    df.set_index("날짜 및 기간(주)", inplace=True)
-    return df
+    if df.empty:    
+        st.info('다른 단어를 검색하세요.')
+    else: 
+        df.drop(columns=['isPartial'], inplace=True)
+        df.reset_index(inplace=True)
+        df.columns = ["날짜 및 기간(주)", "검색량"]
+        df.set_index("날짜 및 기간(주)", inplace=True)
+        return df
 
 def get_data2(keyword2):
     keyword2 = [keyword2]
@@ -44,16 +47,10 @@ keyword = st.sidebar.text_input("검색어1를 입력하세요.(필수)", help="
 keyword2 = st.sidebar.text_input("검색어2를 입력하세요.(선택)", help="그래프가 주황색으로 그려집니다.")
 
 if keyword:
-   
     df = get_data(keyword)
-    if df.empty:
-        st.info('다른 단어를 검색하세요.')
-    
-        if keyword2:
-                df2 = get_data2(keyword2) 
-                if df.empty:
-                    st.info('다른 단어를 검색하세요.')
-
+    if keyword2: 
+        df2 = get_data2(keyword2) 
+ 
    
  
     st.markdown(''' 
