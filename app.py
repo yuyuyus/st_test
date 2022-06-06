@@ -53,12 +53,13 @@ if keyword:
    
  
     st.write('### 매주 검색량 변화 그래프(파랑:검색어1, 주황:검색어2)')
+    st.caption('(파랑:검색어1, 주황:검색어2)')
 
     fig, ax = plt.subplots()
     ax = df['검색량'].plot()
     if keyword2:
         ax = df2['검색량'].plot()
     ax.grid()
-    ax.set(ylabel='search', xlabel='연도')
-    ax.legend()
+    ax.set(ylabel='search', xlabel='year')
+
     st.pyplot(fig)
