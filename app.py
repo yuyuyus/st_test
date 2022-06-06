@@ -58,6 +58,9 @@ if keyword:
     ### 매주 검색량 변화 그래프
     (:blue_book::검색어1   :orange_book::검색어2)
     ''')
+    
+    
+    print(datetime.datetime.now())
 
     fig, ax = plt.subplots()
     ax = df['검색량'].plot()
