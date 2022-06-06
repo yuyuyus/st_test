@@ -8,14 +8,14 @@ from datetime import datetime
 from pytrends.request import TrendReq
 
 # get google trends data from keyword list
-#@st.cache(suppress_st_warning=True)
+
 def get_data(keyword):
     keyword = [keyword]
     pytrend = TrendReq(hl='KR', tz=540)
     pytrend.build_payload(kw_list=keyword, geo='KR')
     df = pytrend.interest_over_time()
     if df.empty:    
-        st.info('다른 단어를 검색하세요.')
+        st.info('낱말을 띄어 써서 다시 검색해 보세요. 또는 더 일반적인 낱말을 검색하세요.')
     else:
         df.drop(columns=['isPartial'], inplace=True)
         df.reset_index(inplace=True)
@@ -54,6 +54,8 @@ st.sidebar.markdown(
     ''')
 keyword = st.sidebar.text_input("검색어1를 입력하세요.(필수)", help="그래프가 파란색으로 그려집니다.")
 keyword2 = st.sidebar.text_input("검색어2를 입력하세요.(선택)", help="그래프가 주황색으로 그려집니다.")
+
+
 
 if keyword:
     get_data(keyword)
