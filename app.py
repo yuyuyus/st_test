@@ -30,7 +30,7 @@ def get_data(keyword1, keyword2):
 
         return st.markdown(''' 
     ### 매주 검색량 변화 그래프
-    (:blue_book::검색어1   :orange_book::검색어2) '''), st.line_chart(df) #st.pyplot(ax)
+    (:blue_book::검색어1   :orange_book::검색어2) '''), st.line_chart(df, use_container_width=True) #st.pyplot(ax)
     
 '''
 def get_data2(keyword2):
