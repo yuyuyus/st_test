@@ -63,7 +63,7 @@ if n == '단어 1개':
     keyword1 = st.sidebar.text_input("검색어1를 입력하세요.(필수)", help="그래프가 파란색으로 그려집니다.")
     button= st.sidebar.button('검색하기')
     if button:
-        if len(keyword1)=0:
+        if len(keyword1)==0:
             st.info('검색어를 입력해주세요.')
         else: 
             get_data1(keyword1)
@@ -73,7 +73,7 @@ else:
     keyword2 = st.sidebar.text_input("검색어2를 입력하세요.(선택)", help="그래프가 주황색으로 그려집니다.")
     button= st.sidebar.button('검색하기')
     if button:
-        if len(keyword1)=0 or len(keyword2)=0 :
+        if len(keyword1)==0 or len(keyword2)==0 :
             st.info('검색어를 입력해주세요.')
         else: 
             get_data2(keyword1, keyword2)
