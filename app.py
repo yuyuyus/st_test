@@ -47,5 +47,6 @@ keyword = st.sidebar.text_input("검색어1를 입력하세요.(필수)", help="
 keyword2 = st.sidebar.text_input("검색어2를 입력하세요.(선택)", help="그래프가 주황색으로 그려집니다.")
 
 if keyword:
-    get_data(keyword)
+    df=get_data(keyword)
+    st.table(df)
 
