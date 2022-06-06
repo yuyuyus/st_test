@@ -48,7 +48,8 @@ keyword2 = st.sidebar.text_input("검색어2를 입력하세요.(선택)", help=
 
 if keyword:
     df = get_data(keyword)
-
+    if df.empty:    
+        st.info('다른 단어를 검색하세요.')
     if keyword2: 
         df2 = get_data2(keyword2) 
  
