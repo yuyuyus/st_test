@@ -13,8 +13,9 @@ t = st.sidebar.select_slider('기간 선택',
 t_int = int(''.join(list(filter(str.isdigit, t))))
 
 now = datetime.datetime.now().date()
-time =  datetime.datetime.now().date()-relativedelta(years= t_int)
-st.text(time)
+past =  datetime.datetime.now().date()-relativedelta(years= t_int)
+time= now+ ' ' + past
+st.text(past)
 st.text(now)
 
 
