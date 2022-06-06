@@ -33,7 +33,7 @@ def get_data2(keyword2):
 
 # sidebar
 st.sidebar.write('# 구글 검색량 확인하기')
-st.sidebar.markdown(':large_orange_square: 지난 5년 동안 사람들이 구글과 유튜브에서 검색어를 검색한 빈도를 그래프로 확인해 봅니다. 
+st.sidebar.markdown('지난 5년 동안 사람들이 구글과 유튜브에서 검색어를 검색한 빈도를 그래프로 확인해 봅니다. 
    시간 흐름에 따라 검색어에 대한 관심도가 가장 높을 때를 100으로 잡고 변화 양상을 보여줍니다.')
 keyword = st.sidebar.text_input("검색어1를 입력하세요.(필수)", help="그래프가 파란색으로 그려집니다.")
 keyword2 = st.sidebar.text_input("검색어2를 입력하세요.(선택)", help="그래프가 주황색으로 그려집니다.")
