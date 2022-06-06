@@ -28,10 +28,9 @@ def get_data(keyword):
         ax.grid(alpha=0.3)
         ax.set(ylabel='search', xlabel='year')
 
-        return st.pyplot(fig), st.markdown(''' 
+        return st.markdown(''' 
     ### 매주 검색량 변화 그래프
-    (:blue_book::검색어1   :orange_book::검색어2)
-    ''')
+    (:blue_book::검색어1   :orange_book::검색어2) '''), st.pyplot(fig)
 
 def get_data2(keyword2):
     keyword2 = [keyword2]
