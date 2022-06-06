@@ -52,21 +52,19 @@ if keyword:
     if keyword2: 
         df2 = get_data2(keyword2) 
  
-   
- 
     st.markdown(''' 
     ### 매주 검색량 변화 그래프
     (:blue_book::검색어1   :orange_book::검색어2)
     ''')
     
-if df.empty:    
-    st.info('다른 단어를 검색하세요.')
-else:
-    fig, ax = plt.subplots()
-    ax = df['검색량'].plot()
-    if keyword2:
-        ax = df2['검색량'].plot()
-    ax.grid(alpha=0.3)
-    ax.set(ylabel='search', xlabel='year')
+    if df.empty:    
+        st.info('다른 단어를 검색하세요.')
+    else:
+        fig, ax = plt.subplots()
+        ax = df['검색량'].plot()
+        if keyword2:
+            ax = df2['검색량'].plot()
+        ax.grid(alpha=0.3)
+        ax.set(ylabel='search', xlabel='year')
 
-    st.pyplot(fig)
+        st.pyplot(fig)
