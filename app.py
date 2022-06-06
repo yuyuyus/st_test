@@ -54,10 +54,10 @@ if keyword:
             #st.dataframe(df2)
    
  
-    st.write('
+    st.write('''
              :chart_with_upwards_trend:
              ### 매주 검색량 변화 그래프(파랑:검색어1, 주황:검색어2)')
-    st.caption('(파랑:검색어1, 주황:검색어2)')
+    st.caption('(파랑:검색어1, 주황:검색어2)''')
     '''
     :smile:
     '''
