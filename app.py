@@ -36,7 +36,7 @@ st.sidebar.write('# 구글 검색량 확인하기')
 
 st.sidebar.markdown(
     '''
-    :large_orange_square:
+    :smile:
    지난 5년 동안 사람들이 구글과 유튜브에서 검색어를 검색한 빈도를 그래프로 확인해 봅니다. 
    시간 흐름에 따라 검색어에 대한 관심도가 가장 높을 때를 100으로 잡고 변화 양상을 보여줍니다. 
     ''')
@@ -56,7 +56,7 @@ if keyword:
  
     st.write('### 매주 검색량 변화 그래프(파랑:검색어1, 주황:검색어2)')
     st.caption('(파랑:검색어1, 주황:검색어2)')
-    ''':large_orange_square:'''
+    ''':smile:'''
 
     fig, ax = plt.subplots()
     ax = df['검색량'].plot()
