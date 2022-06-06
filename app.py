@@ -3,9 +3,26 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import datetime
-
+from dateutil.relativedelta import relativedelta
 
 from pytrends.request import TrendReq
+
+t = st.sidebar.select_slider('기간 선택',
+     options=['10년 전부터', '9년 전부터','8년 전부터','7년 전부터','6년 전부터','5년 전부터','4년 전부터','3년 전부터','2년 전부터','1년 전부터'])
+
+t_int = int(''.join(list(filter(str.isdigit, t))))
+
+now = datetime.datetime.now().date()
+time =  datetime.datetime.now().date()-relativedelta(years= t_int)
+st.sidebar.text(time+ ' ' + now)
+
+
+
+
+
+
+
+
 
 # get google trends data from keyword list
 
@@ -56,6 +73,8 @@ st.sidebar.markdown(
    지난 5년 동안 사람들이 구글과 유튜브에서 '특정 단어'를 검색한 빈도를 그래프로 확인해 봅니다. 
    시간 흐름에 따라 검색어에 대한 관심도가 가장 높을 때를 :100:으로 잡고 변화 양상을 보여줍니다. 
     ''')
+
+
 n = st.sidebar.radio("검색어 개수",
      ('단어 1개', '단어 2개'), horizontal=True)
 
