@@ -77,8 +77,8 @@ if n == '단어 1개':
             st.info('검색어를 입력하세요.')
         else: 
             get_data1(keyword1)
-            st.markdown('''	 👉 영어 월별 이름''')
-            st.image("https://t1.daumcdn.net/cfile/tistory/99B733505C656CE81B", width=500)
+            #st.markdown('''	 👉 영어 월별 이름''')
+            #st.image("https://t1.daumcdn.net/cfile/tistory/99B733505C656CE81B", width=500)
 
 else:
     keyword1 = st.sidebar.text_input("검색어1를 입력하세요.")
@@ -90,8 +90,8 @@ else:
         else: 
             get_data2(keyword1, keyword2)
             st.markdown('''	 👉 만약 아래에 일직선으로 그려지는 그래프가 있다면 해당 검색어는 검색이 되지 않는 단어입니다.''')
-            st.markdown('''	 👉 영어 월별 이름''')
-            st.image("https://t1.daumcdn.net/cfile/tistory/99B733505C656CE81B", width=500)
+            #st.markdown('''	 👉 영어 월별 이름''')
+            #st.image("https://t1.daumcdn.net/cfile/tistory/99B733505C656CE81B", width=500)
 
 
 
