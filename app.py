@@ -11,7 +11,7 @@ from pytrends.request import TrendReq
 st.sidebar.write(''' # :chart_with_upwards_trend: 구글 검색량 확인하기''')
 
 st.sidebar.markdown(
-    '''   지난 5년 동안 사람들이 구글과 유튜브에서 '특정 단어'를 검색한 빈도를 그래프로 확인해 봅니다. 
+    '''사람들이 구글과 유튜브에서 '특정 단어'를 검색한 빈도를 그래프로 확인해 봅니다. 
    시간 흐름에 따라 검색어에 대한 관심도가 가장 높을 때를 :100:으로 잡고 변화 양상을 보여줍니다. 
     ''')
 
